@@ -2,17 +2,17 @@ let tickets = [];
 
 // Define the validateEmail function
 function validateEmail(email) {
-    // Regular expression for validating email addresses
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
+// Define the validatePhoneNumber function
 function validatePhoneNumber(phone) {
-    // Regular expression to match exactly 8 digits
-    var regex = /^\d{8}$/;
-    return regex.test(phone);
+    const phoneRegex = /^\d{8}$/;
+    return phoneRegex.test(phone);
 }
 function buyTickets() {
+    // fetch the values from HTML form
     let selectedMovie = document.getElementById("movies").value;
     let selectedAmount = document.getElementById("amount").value;
     let selectFirstName = document.getElementById("firstname").value;
@@ -20,6 +20,7 @@ function buyTickets() {
     let selectedEmail = document.getElementById("email").value;
     let selectedPhoneNumber = document.getElementById("phonenumber").value;
 
+    // put the values into "ticket" object
     const ticket = {
         movie: selectedMovie,
         quantity: selectedAmount,
@@ -29,8 +30,10 @@ function buyTickets() {
         phoneNumber: selectedPhoneNumber
     };
 
+    // initializes errors found. This will be used to identify if there are validation errors.
     let errorsFound = 0;
 
+    // validation start
     if (ticket.movie === '') {
         $('#movieDiv').addClass('error');
         $('#movieDiv .errorText').html('Please choose a movie');
@@ -89,16 +92,20 @@ function buyTickets() {
         $('#emailDiv .errorText').html('');
         $('#emailDiv').removeClass('error');
     }
+    // end of validation
 
-    // Continue if no errors
+    // if there are errors found, exit the function.
     if (errorsFound > 0) {
         return;
     }
+    // Continue if no errors with validation
 
+    // pushes the "ticket" object to the array "tickets".
     tickets.push(ticket);
 
     displayTickets(); // Call the function to display tickets
 
+    // resets
     document.getElementById("movies").value = "";
     document.getElementById("amount").value = "";
     document.getElementById("firstname").value = "";
