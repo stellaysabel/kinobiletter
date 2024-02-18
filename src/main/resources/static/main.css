@@ -1,0 +1,8 @@
+.error .errorText {
+    color: red;
+}
+
+.error select,
+.error input {
+    border-color: red;
+}

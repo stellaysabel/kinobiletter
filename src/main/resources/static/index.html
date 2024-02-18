@@ -3,51 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Kinobiletter</title>
-    <script src="main.js"></script> <!-- Kobler sammen filen med javascript filen jeg har laget. -->
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>
-        Bestilling av kinobiletter
-    </h1>
+<h1>
+    Bestilling av kinobiletter
+</h1>
 
-    <label for="movies">Velg film</label>  <!-- label for the "movies" id -->
+<div id="movieDiv">
+    <label for="movies">Velg film</label>
     <select id="movies">
-        <option value="choose-movie">Velg film</option>
+        <option value="">Velg film</option>
         <option value="barbie">Barbie</option>
         <option value="how-to-loose-a-guy">How to loose a guy in 10 days</option>
         <option value="clueless">Clueless</option>
         <option value="legally-blonde">Legally Blonde</option>
         <option value="jawbreaker">Jawbreaker</option>
     </select>
+    <div class="errorText"></div>
+</div>
 
-    <br>
-    <br>
-
-    <label for="amount">Antall biletter</label>
+<div id="amountDiv">
+    <label for="amount">Quantity</label>
     <input id="amount" type="text">
+    <div class="errorText"></div>
+</div>
 
-    <br>
-    <br>
+<div id="firstnameDiv">
+    <label for="firstname">First name</label>
+    <input id="firstname" type="text">
+    <div class="errorText"></div>
+</div>
 
-    <label for="name">Fornavn</label>
-    <input id="name" type="text">
-
-    <br>
-    <br>
-
-    <label for="surname">Etternavn</label>
+<div id="surnameDiv">
+    <label for="surname">Surname</label>
     <input id="surname" type="text">
+    <div class="errorText"></div>
+</div>
 
-    <br>
-    <br>
+<div id="emailDiv">
+    <label for="email">Email</label>
+    <input id="email" type="email">
+    <div class="errorText"></div>
+</div>
 
+<div id="phonenumberDiv">
+    <label for="phonenumber">Phonenumber</label>
+    <input id="phonenumber" type="text">
+    <div class="errorText"></div>
+</div>
 
+<button onclick="buyTickets();">Buy ticket(s)</button>
 
-    <br>
-    <br>
+<h2>
+    Tickets:
+</h2>
 
-    <br>
-    <br>
+<div id="output"></div>
+
+<button onclick="deleteTicket()">Delete all tickets</button>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="main.js"></script> <!-- Linking the JavaScript file -->
 
 </body>
 </html>
